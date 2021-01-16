@@ -59,7 +59,7 @@ bot.message(start_with: :game) do |event|
 end
 
 bot.ready do |_event|
-  bot.watching = "In love with Hiro 4ever..! | go!help"
+  bot.watching = "In love with Hiro 4ever..! | in #{bot.servers.count} servers | go!help".capitalize
   sleep 180
   redo
 end
@@ -75,11 +75,12 @@ bot.command :broadcast do |event, *args|
     end
 end
 
-bot.command :invite, chain_usable: false do |event|
-  event.respond '`Invite our BOT to your server`' + ':love_letter:'
-  event.respond 'https://discord.com/api/oauth2/authorize?client_id=734085419255464030&permissions=8&scope=bot'
+bot.command :invite do |event|
+   event.user.pm "#{bot.invite_url}" + 'Here is our Bot, add in your discord and enjoy!' + ' :love_letter: :fire:'
 end
-
+bot.command :asd do |event|
+  event.user.pm "asdasdasdasd"
+end
 bot.command :sheep do |event|
   event.channel.send_embed do |embed|
     embed.image = Discordrb::Webhooks::EmbedImage.new(url: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/199eeff0-af38-4f30-ae28-f447f30a78a6/d6xo4oa-6676b807-18ca-432d-826e-b4660bdca49c.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMTk5ZWVmZjAtYWYzOC00ZjMwLWFlMjgtZjQ0N2YzMGE3OGE2XC9kNnhvNG9hLTY2NzZiODA3LTE4Y2EtNDMyZC04MjZlLWI0NjYwYmRjYTQ5Yy5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.QiwNWHYqN6P0Mucxdl2eNC7oXw_iI-Lv8l_wyGdWZJY')
@@ -123,7 +124,7 @@ end
 bot.command :donate do |event|
   begin
     event.channel.send_embed do |embed|
-      embed.title = 'Donate to Ichigo BOT!'
+      embed.title = 'Donate to Ichigo Bot!'
       embed.description = 'for best performance, more features, etc.'
       embed.add_field(name: 'Donate', value: 'You can donate via paypal [here](https://paypal.me/pablobcl).')
       event.color = 0x120A8F
@@ -197,11 +198,12 @@ bot.command :clear, aliases: [:remove, :delete], description: 'Clear messages!' 
   event.respond "Successfully deleted #{amount} messages 💥!"
 end
 
-puts "----------------------------------------".colorize(:yellow)
+puts "----------------------------------------".colorize(:blue)
 puts ""
-puts "Bot iniciado...".colorize(:green)
+puts "Bot iniciado.".colorize(:green)
+puts "Bot URL: #{bot.invite_url}"
 puts ""
-puts "----------------------------------------".colorize(:yellow)
+puts "----------------------------------------".colorize(:blue)
 
 
 bot.run :async
