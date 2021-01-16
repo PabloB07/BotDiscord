@@ -1,0 +1,29 @@
+# API do Discord.
+token: "NzM0MDg1NDE5MjU1NDY0MDMw.XxMkUg.DGiii56yQGBmPAdlYUt9kXv14qc"
+client_id: 734085419255464030
+prefix: "go!"
+
+# Nome do cargo para cada permissão, os canais DEVEM EXISTIR.
+# developer -> Pode manipular logs para debug, reiniciar e desligar o bot.
+# admin -> Pode banir usuários.
+# moderator -> Pode kickar usuários.
+# colaborator -> Pode manipular tickets.
+developer: "developer"
+admin: "admin"
+moderator: "moderator"
+colaborator: "colaborator"
+
+# Ferramentas administrativas.
+# As duas opções podem ser direcionadas para o mesmo ID.
+admin_channel_id: 749150441115484160
+join_part_channel_id: 748804698517012490
+
+# Mantêm PMs em /data/logs/PM.log.
+# A primeira opção mantêm log de TODAS as mensagens.
+log_server_messages: false
+log_private_messages: true
+
+# Transparência.
+# Exibe um relatório após banimentos e expulsões.
+transparency: true
+transparency_channel_id: 753774628366975046
