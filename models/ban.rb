@@ -1,4 +1,4 @@
-module Ichigo
+module Ichigobot
   module Database
     class Ban < Sequel::Model
       plugin :enum
@@ -21,7 +21,7 @@ module Ichigo
         msg = []
         msg = template msg
 
-        channel = BOT.server(server_id).channels.find { |ch| ch.id == CONFIG["transparency_channel_id"] }
+        channel = bot.server(server_id).channels.find { |ch| ch.id == CONFIG["transparency_channel_id"] }
         channel.send_message msg.join "\n" if channel
       end
     end

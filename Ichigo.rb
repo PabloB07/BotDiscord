@@ -12,7 +12,7 @@ require 'sqlite3'
 require 'sequel'
 require 'sequel_enum'
 
-module Ichigo
+module Ichigobot
   bot_version = '1.0.0'
   CONFIG = YAML.load_file("configuration.yml")
   bot = Discordrb::Commands::CommandBot.new token: CONFIG["token"], prefix: CONFIG["prefix"], client_id: CONFIG["client_id"], compress_mode: false, no_permission_message: "You don't have permissions to do that :(!", ignore_bots: true, help_command: false
@@ -78,9 +78,7 @@ end
 bot.command :invite do |event|
    event.user.pm "#{bot.invite_url}" + 'Here is our Bot, add in your discord and enjoy!' + ' :love_letter: :fire:'
 end
-bot.command :asd do |event|
-  event.user.pm "asdasdasdasd"
-end
+
 bot.command :sheep do |event|
   event.channel.send_embed do |embed|
     embed.image = Discordrb::Webhooks::EmbedImage.new(url: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/199eeff0-af38-4f30-ae28-f447f30a78a6/d6xo4oa-6676b807-18ca-432d-826e-b4660bdca49c.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMTk5ZWVmZjAtYWYzOC00ZjMwLWFlMjgtZjQ0N2YzMGE3OGE2XC9kNnhvNG9hLTY2NzZiODA3LTE4Y2EtNDMyZC04MjZlLWI0NjYwYmRjYTQ5Yy5naWYifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.QiwNWHYqN6P0Mucxdl2eNC7oXw_iI-Lv8l_wyGdWZJY')
@@ -98,7 +96,7 @@ bot.command :help, aliases: [:about] do |event|
       embed.description = "This bot allows you to get you many features!\n"
 
       embed.add_field(name: 'Ichigo Commands', value: 'Command list can be found with `go!commands`', inline: true)
-      embed.add_field(name: 'Invite Ichigo to your server uwu!', value: 'You can invite Ichigo to your server with [Link](https://discordapp.com/oauth2/authorize?&client_id=734085419255464030&scope=bot).', inline: true)
+      embed.add_field(name: 'Invite Ichigo to your server uwu!', value: 'You can invite Ichigo to your server with [Link](https://discordapp.com/oauth2/authorize?&client_id=734085419255464030&permissions=816&scope=bot).', inline: true)
       embed.add_field(name: 'Help Server Ichigo', value: 'Click [here](https://discord.gg/3DhBE6f) to get Help.', inline: true)
       embed.add_field(name: 'More', value: 'Run `go!more` to see more!', inline: true)
     end
@@ -111,7 +109,7 @@ bot.command :info, aliases: [:bot] do |event|
   begin
     event.channel.send_embed do |event|
       event.title = 'About Ichigo bot'
-      event.add_field(name: 'Author', value: 'AeroSama7#0707 :flag_cl:', inline: true)
+      event.add_field(name: 'Author', value: 'Blanco#7159 :flag_cl:', inline: true)
       event.add_field(name: 'Ichigo Version', value: bot_version, inline: true) unless bot_version == ''
       event.color = 0x120A8F
       event.timestamp = Time.now
@@ -198,14 +196,13 @@ bot.command :clear, aliases: [:remove, :delete], description: 'Clear messages!' 
   event.respond "Successfully deleted #{amount} messages 💥!"
 end
 
+
 puts "----------------------------------------".colorize(:blue)
 puts ""
 puts "Bot iniciado.".colorize(:green)
-puts "Bot URL: #{bot.invite_url}"
+puts "Bot URL: #{bot.invite_url}&permissions=816"
 puts ""
 puts "----------------------------------------".colorize(:blue)
 
-
-bot.run :async
-bot.sync
+bot.run
 end

@@ -1,4 +1,4 @@
-module Ichigo
+module Ichigobot
   module Database
     class Ticket < Sequel::Model
       def show

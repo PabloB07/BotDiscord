@@ -1,4 +1,4 @@
-module Ichigo
+module Ichigobot
   module Events
     module Permissions
       extend Discordrb::EventContainer

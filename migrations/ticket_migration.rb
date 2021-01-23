@@ -1,3 +1,6 @@
+module Ichigobot
+  module Migrations
+    module TicketMigration
 Sequel.migration do
   up do
     create_table :tickets do

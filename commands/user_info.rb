@@ -1,4 +1,4 @@
-module Ichigo
+module Ichigobot
   module Commands
     module UserInfo
       extend Discordrb::Commands::CommandContainer

@@ -13,7 +13,6 @@ gem 'colorize'
 gem 'discordrb-webhooks'
 gem 'dblruby'
 gem 'yaml'
-
 gem "sqlite3"
 gem "sequel"
 gem "sequel_enum"

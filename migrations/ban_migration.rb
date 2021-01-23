@@ -1,9 +1,12 @@
+module Ichigobot
+  module Migrations
+    module BanMigration
+
 Sequel.migration do
   up do
     create_table :bans do
       primary_key :id
-
-      # "Banido", "Expulso", "Banimento Removido"
+      
       Integer :event, null: false
 
       String  :user,         null: false

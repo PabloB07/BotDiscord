@@ -1,4 +1,4 @@
-module Ichigo
+module Ichigobot
   module Commands
     module Admin
       extend Discordrb::Commands::CommandContainer
@@ -10,7 +10,7 @@ module Ichigo
         # event.server.kick( event.message.mentions.first.on( event.server ) )
         user = event.message.mentions.first.on(event.server)
 
-        log = Ichigo::Database::Ban.create(
+        log = Ichigobot::DB::Database::Ban.create(
             event: :kick,
             user: user.distinct,
             user_id: user.id,
@@ -31,7 +31,7 @@ module Ichigo
         # event.server.kick( event.message.mentions.first.on( event.server ) )
         user = event.message.mentions.first.on(event.server)
 
-        log = Ichigo::Database::Ban.create(
+        log = Ichigobot::DB::Database::Ban.create(
             event: :ban,
             user: user.distinct,
             user_id: user.id,
