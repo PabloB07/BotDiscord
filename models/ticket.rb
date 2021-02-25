@@ -1,5 +1,5 @@
-module Ichigobot
-  module Database
+module Ichigo
+  module Models
     class Ticket < Sequel::Model
       def show
         channel = bot.server( server_id ).channels.find { |ch| ch.id == CONFIG["admin_channel_id"] }

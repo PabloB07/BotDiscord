@@ -8,12 +8,12 @@ admin: "OP"
 moderator: "Moderator"
 colaborator: "Tickets"
 
-admin_channel_id: 800806280767471617
+admin_channel_id: 814521060740562945
 join_part_channel_id: 748804698517012490
 
 
-log_server_messages: false
+log_server_messages: true
 log_private_messages: true
 
 transparency: true
-transparency_channel_id: 753774628366975046
+transparency_channel_id: 814522667041947648

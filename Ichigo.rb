@@ -12,18 +12,13 @@ require 'sqlite3'
 require 'sequel'
 require 'sequel_enum'
 
-module Ichigobot
-  bot_version = '1.0.0'
+module Ichigo
+  VERSION = '1.0.0'
   CONFIG = YAML.load_file("configuration.yml")
-  bot = Discordrb::Commands::CommandBot.new token: CONFIG["token"], prefix: CONFIG["prefix"], client_id: CONFIG["client_id"], compress_mode: false, no_permission_message: "You don't have permissions to do that :(!", ignore_bots: true, help_command: false
-
-  Dir["modules/*.rb"].each   { |file| load file }
-  Dir["commands/*.rb"].each  { |file| load file }
-  Dir["events/*.rb"].each    { |file| load file }
-
+  bot = Discordrb::Commands::CommandBot.new token: CONFIG["token"], prefix: CONFIG["prefix"], client_id: CONFIG["client_id"], compress_mode: true, no_permission_message: "You don't have permissions to do that :(!", ignore_bots: true, help_command: true
 
 bot.mention do |event|
-  event.user.pm('You have mentioned me!')
+  event.user.pm('You have mentioned me?')
 end
 
 bot.message(start_with: :game) do |event|
@@ -59,7 +54,7 @@ bot.message(start_with: :game) do |event|
 end
 
 bot.ready do |_event|
-  bot.watching = "In love with Hiro 4ever..! | in #{bot.servers.count} servers | go!help".capitalize
+  bot.game = "In love with Hiro 4ever..! | in #{bot.servers.count} servers | go!help"
   sleep 180
   redo
 end
@@ -188,7 +183,6 @@ end
 end
 
 =end
-
 bot.command :clear, aliases: [:remove, :delete], description: 'Clear messages!' do |event, amount|
   amount = amount.to_i
   return "You can delete only 100 messages!" if amount > 100

@@ -1,6 +1,6 @@
-module Ichigobot
-  module Database
-    class Ban < Sequel::Model
+module Ichigo
+  module Models
+    class Ban
       plugin :enum
       enum   :event, [:ban, :kick, :unban]
 

@@ -1,4 +1,4 @@
-module Ichigobot
+module Ichigo
   module Events
     module Permissions
       extend Discordrb::EventContainer
@@ -12,11 +12,11 @@ module Ichigobot
 
         server_roles.each do |roles|
           event.bot.servers.values.map(&:id).each do |server|
-            next unless role = event.bot.server(server).roles.find { |r| r.name == roles[:role] }
+            next unless (role = event.bot.server(server).roles.find { |r| r.name == roles[:role] })
             bot.set_role_permission role.id, roles[:permission]
           end
         end
       end
     end
   end
-end
+  end

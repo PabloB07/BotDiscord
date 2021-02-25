@@ -1,27 +1,29 @@
-module Ichigobot
+module Ichigo
   module Migrations
-    module BanMigration
+      module BanMigration
+  
+  Sequel.migration do
+    up do
+      create_table :bans do
+        primary_key :id
+        
+        Integer :event
 
-Sequel.migration do
-  up do
-    create_table :bans do
-      primary_key :id
-      
-      Integer :event, null: false
-
-      String  :user,         null: false
-      String  :moderator,    null: false
-      Integer :user_id,      null: false
-      Integer :moderator_id, null: false
-      Integer :server_id,    null: false
-      String  :reason
-
-      DateTime :created_at
-      DateTime :updated_at
+        String  :user
+        String  :moderator
+        Integer :user_id
+        Integer :moderator_id
+        Integer :server_id
+        String  :reason
+  
+        DateTime :created_at
+        DateTime :updated_at
+      end
     end
-  end
-
-  down do
-    drop_table(:bans)
-  end
 end
+    down do
+        drop_table(:bans)
+    end
+end
+  end
+  end
